@@ -1,7 +1,7 @@
 # TP1 - HTML
 	Preguntas teoricas
 	
-	1¿Qué es un lenguaje de marcado? ¿Cuál es su utilidad? ¿Qué es un tag? ¿Qué es un atributo? 
+	1.¿Qué es un lenguaje de marcado? ¿Cuál es su utilidad? ¿Qué es un tag? ¿Qué es un atributo? 
 		Un lenguaje de marcas es un lenguaje que consiste en dar organización a un documento incorporando etiquetas. 
 		Su utilidad esta en que anota el texto de modo que una computadora pueda manipularlo e interpretarlo. 
 		Los tag o etiquetas en HTML son fragmentos de texto rodeados por corchetes angulares < >,
