@@ -77,7 +77,7 @@
 	*/
 	function registrarTurno($img){
 		$id = 0;//getLastId();
-		$array[] = array('id'=>$id,
+		$array = array('id'=>$id,
 						'nombre'=>$_POST['nombre'],
 						'email'=>$_POST['email'],
 						'tel'=>$_POST['tel'],
@@ -97,11 +97,20 @@
 		
 		//Retrieve the data from our text file.
 		$fileContents = file_get_contents('data.json');
-		var_dump($fileContents);
 		
-		//Convert the JSON string back into an array.
-		$decoded = json_decode($fileContents);
-		print $decoded;
+		// Here $json is your json string
+		$json_array = json_decode($fileContents, true);
+
+		foreach($json_array as $key => $arrays){
+			echo $key . "<br />";
+			foreach($arrays as $array){
+				foreach($array as $key => $value){
+					echo $key . " => " . $value . "<br />";
+				}
+			}
+			echo "<br />";
+		}
+
 	}
 
 	$errores = validadorDatos();
