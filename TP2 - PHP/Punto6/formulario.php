@@ -18,7 +18,7 @@
 		if(($_POST['edad']<0) || ($_POST['edad']>150) || (!preg_match("/^[0-9]*$/",$_POST['tel']))){
 			$errores .= "Edad invalida -";
 		}
-		if(($_POST['calzado']<=20) || ($_POST['calzado']>=45) || (!preg_match("/^[0-9]*$/",$_POST['calzado']))){
+	if((($_POST['calzado']<=20) || ($_POST['calzado']>=45) || (!preg_match("/^[0-9]*$/",$_POST['calzado']))) && ($_POST['calzado'] != '')){
 			$errores .= "Calzado invalido -";
 		}
 		if(($_POST['altura']<=0) || ($_POST['altura']>=230) || (!preg_match("/^[0-9]*$/",$_POST['altura']))){
@@ -60,23 +60,9 @@
 		}
 		return $res;
 	}
-/*	function getLastId(){
-		if(file_exists("data.json")){
-			$fileContents = file_get_contents('data.json');
-			$decoded = json_decode($fileContents, true);
-			$i = 0;
-			foreach ($decoded as $clave => $valor){
-				if($clave == "id")
-					$i++;
-			}
-			return $i;
-		}else{
-			return 0;
-		}
-	}
-	*/
+	
 	function registrarTurno($img){
-		$id = 0;//getLastId();
+		$id = 0;
 		$array = array('id'=>$id,
 						'nombre'=>$_POST['nombre'],
 						'email'=>$_POST['email'],
@@ -89,28 +75,14 @@
 						'pelo'=>$_POST['pelo'],
 						'hora'=>$_POST['hora'],
 						'image'=>$img);
-		echo "DUMP ARRAY:";
-		var_dump($array);
-
-		//Grabo en el archivo codificando en json
-		file_put_contents('data.json', json_encode($array,JSON_PRETTY_PRINT), FILE_APPEND);
-		
-		//Retrieve the data from our text file.
-		$fileContents = file_get_contents('data.json');
-		
-		// Here $json is your json string
-		$json_array = json_decode($fileContents, true);
-
-		foreach($json_array as $key => $arrays){
-			echo $key . "<br />";
-			foreach($arrays as $array){
-				foreach($array as $key => $value){
-					echo $key . " => " . $value . "<br />";
-				}
-			}
-			echo "<br />";
+		//Asigno el id del turno
+		if(file_exists('data.json')){
+			$fileContents = file_get_contents('data.json');
+			$json = json_decode($fileContents, true);
+			$array['id'] = count($json);
 		}
-
+		$json[] = $array;
+		file_put_contents('data.json', json_encode($json,JSON_PRETTY_PRINT, FILE_APPEND));
 	}
 
 	$errores = validadorDatos();
