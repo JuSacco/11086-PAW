@@ -5,9 +5,9 @@
 	
 	Trabajos practicos:
 	
-	TP1 - HTML
+	TP1 - HTML ✓
 	
-	TP2 - PHP
+	TP2 - PHP  ✓
 	
 	TP3 - JavaScript
 	
