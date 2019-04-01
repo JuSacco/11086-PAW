@@ -11,3 +11,6 @@ opción elegida.
 
 ![Benchmark json vs serialize](https://cdn-images-1.medium.com/max/1600/1*ZFTjN5iSqzRhPg-P-t9YXQ.jpeg)
 		
+¿Cómo se identifica y discrimina un turno de otro?
+	Se le da un atributo "id" que coincide con la posicion dentro del array, con esto nos aseguramos que cada id
+	sea unico. 
