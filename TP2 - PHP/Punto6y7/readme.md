@@ -9,5 +9,5 @@ opción elegida.
 	por que es universal a diversos lenguajes, sino tambien, en benchmarks arroja un porcentaje altisimo de 
 	performance comparado con serialize de php.
 
-(Benchmark json vs serialize)[!https://cdn-images-1.medium.com/max/1600/1*ZFTjN5iSqzRhPg-P-t9YXQ.jpeg]
+![Benchmark json vs serialize](https://cdn-images-1.medium.com/max/1600/1*ZFTjN5iSqzRhPg-P-t9YXQ.jpeg)
 		
