@@ -1,0 +1,1 @@
+<p>El valor de la variable es '<?= $variable ?>'.</p>
