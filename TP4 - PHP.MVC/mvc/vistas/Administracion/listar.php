@@ -21,7 +21,7 @@
 				<th>Ficha del turno</th>
 			</thead>
 			<tbody>
-				<?php cargarDatos(); ?>
+				<?php echo $datos; ?>
 			</tbody>
 		</table>
 	</body>

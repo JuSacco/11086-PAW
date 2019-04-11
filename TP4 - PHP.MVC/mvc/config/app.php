@@ -2,7 +2,7 @@
 return [
     'Router' => [
         'accionPorDefecto' => [
-            'controlador' => 'Test',
+            'controlador' => 'Inicio',
             'accion' => 'index'
         ],
 		'reservar' => [
@@ -11,7 +11,7 @@ return [
         ],
 		'administrar' => [
             'controlador' => 'Administracion',
-            'accion' => 'listarTurnos'
+            'accion' => 'listar'
         ]
     ]
 ];

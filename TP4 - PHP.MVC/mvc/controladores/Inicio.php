@@ -6,7 +6,7 @@ use UNLu\PAW\Libs\VIstaHTML;
  *
  * @author Santiago Ricci <sricci.soft at gmail.com>
  */
-class Test extends \UNLu\PAW\Libs\Controlador{   
+class Inicio extends \UNLu\PAW\Libs\Controlador{   
 
     public function index(){       
         $this->pasarVariableAVista('variable', 'valor');

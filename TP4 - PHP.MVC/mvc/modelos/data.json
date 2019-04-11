@@ -1,0 +1,16 @@
+[
+    {
+        "id": 0,
+        "nombre": "Juan",
+        "email": "juan@gmail.com",
+        "tel": "2346555798",
+        "edad": "45",
+        "calzado": "40",
+        "altura": "170",
+        "fecnac": "1999-05-12",
+        "fecturno": "2019-12-02",
+        "pelo": "morocho",
+        "hora": "08:15",
+        "image": ".\/imagenes\/e.png"
+    }
+]
