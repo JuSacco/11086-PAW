@@ -21,7 +21,7 @@
 				<th>Ficha del turno</th>
 			</thead>
 			<tbody>
-				<?php echo $datos; ?>
+				<?php foreach($datos as $d){echo $d;} ?>
 			</tbody>
 		</table>
 	</body>
