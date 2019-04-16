@@ -8,8 +8,7 @@
 		<header>
 			<h1>Sistema de turnos medicos</h1>
 			<nav>
-				<a href="administracion.html">Administracion</a>
-				<a href="resumenturno.html">Ficha del turno</a>
+				<a href="./../..">Volver</a>
 			</nav>
 		</header>
 		<table border="simple">
@@ -21,7 +20,7 @@
 				<th>Ficha del turno</th>
 			</thead>
 			<tbody>
-				<?php foreach($datos as $d){echo $d;} ?>
+				<?php if($datos != null)foreach($datos as $d){echo $d;} ?>
 			</tbody>
 		</table>
 	</body>

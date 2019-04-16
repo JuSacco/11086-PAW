@@ -8,7 +8,7 @@
 
 		function fillAllTurnos(){
 			$sql = "SELECT * FROM turnos";
-			$datos;
+			$datos = null;
 			foreach ($this->conn->db->query($sql) as $row) {
 				$str = "<tr> <td> ".$row['fec_turno']."</td>";
 				$str .= "<td> ".$row['horario_turno']." </td>";
@@ -38,38 +38,41 @@
 			}
 			return $datos;
 		}
-/*
-		function cargarDatos(){
-			$fileContents = file_get_contents($_SERVER["DOCUMENT_ROOT"].'/tp4/mvc/modelos/data.json');
-			$json = json_decode($fileContents, true);
-			if ($json != ""){
-				foreach($json as $data){
-					echo '<tr>';
-					foreach($data as $k=>$v){
-						if($k =="fecturno")
-							$fecha = $v;
-						if($k =="hora")
-							$hora = $v;
-						if($k =="nombre")
-							$nombre = $v;
-						if($k =="tel")
-							$tel = $v;
-						if($k =="id")
-							$id = $v;
-					}
-					$str = "<td>$fecha</td>";
-					$str .= "<td>$hora</td>";
-					$str .= "<td>$nombre</td>";
-					$str .= "<td>$tel</td>";
-					$str .= "<td><a href=" . '"' . "ficha.php?id=" . "$id" .'"'. '> Link a ficha</a></td>';
-					$str .= '</tr>';
-				}
-				return $str;
+		function uplImage(){
+			$tmp_name = $_FILES["imagen"]["tmp_name"];
+			$directorio = "./imagenes";
+			$name = basename($_FILES["imagen"]["name"]);
+
+			if((!file_exists("$directorio/$name")) && (move_uploaded_file($tmp_name, "$directorio/$name"))){
+				$res = "$directorio/$name";
+			}else{
+				$res = "";
 			}
+		return $res;
 		}
-*/
-		public function getInfo(){
-			return $this->info;
+		function addTurno($datos){
+			/*
+			$nombre = $datos['nombre'];
+			$email = $datos['email'];
+			$tel = $datos['tel'];
+			$edad = $datos['edad'];
+			$calzado = $datos['calzado'];
+			$altura = $nombre = $datos['altura'];
+			$fec_nac = $datos['fecnac'];
+			$fec_turno = $datos['fecturno'];
+			$hora = $datos['hora'];
+			$image = $datos['image'];
+			$pelo = $datos['pelo'];
+			$sql = "INSERT INTO turnos (id, nombre, mail, telefono, edad, calzado, altura, fec_nac, fec_turno, horario_turno, url_diagnostico, color_pelo) VALUES ('NULL','$nombre', '$email', '$tel', '$edad', '$calzado', '$altura', '$fec_nac', '$fec_turno', '$hora', '$image', '$pelo')";
+			if ($this->conn->db->query($sql) === TRUE){
+				return $this->conn->db->lastInsertId();
+			}
+			*/
+			$sql = "INSERT INTO `turnos` (`id`, `nombre`, `mail`, `telefono`, `edad`, `calzado`, `altura`, `fec_nac`, `fec_turno`, `horario_turno`, `url_diagnostico`, `color_pelo`) 
+			VALUES ('' ,:nombre, :email, :tel, :edad, :calzado, :altura, :fecnac:, :fecturno, :hora, :image, :pelo)";
+			$stmt = $this->conn->db->prepare($sql)->execute($datos);
+			$error = $this->conn->db->errorInfo();
+			var_dump($error);
 		}
 	}
 ?>
