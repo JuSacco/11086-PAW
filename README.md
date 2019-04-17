@@ -9,11 +9,11 @@
 	
 	TP2 - PHP  ✓
 	
-	TP3 - JavaScript
+	TP3 - PHP.MVC ✓
 	
 	TP4 - CSS
 	
-	TP5 - PHP
+	TP5 - JavaScript
 	
 	TP6 - SVG
 	
