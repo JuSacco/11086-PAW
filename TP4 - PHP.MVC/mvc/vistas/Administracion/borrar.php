@@ -8,7 +8,7 @@
 		<header>
 			<h1>Sistema de turnos medicos</h1>
 			<nav>
-				<a href="./../..">Volver</a>
+				<a href="/tp4/mvc">Volver</a>
 			</nav>
 		</header>
 		<table border="simple">

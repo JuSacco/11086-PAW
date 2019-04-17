@@ -23,7 +23,7 @@ class Reservar extends \UNLu\PAW\Libs\Controlador{
 						'fecturno'=>$_POST['fecturno'],
 						'pelo'=>$_POST['pelo'],
 						'hora'=>$_POST['hora'],
-						'image'=>$img);
+						'img'=>$img);
         $lastId = $turnos->addTurno($datos);
 		$info = "";
 		if ($lastId != null)

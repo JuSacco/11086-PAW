@@ -5,6 +5,12 @@
 		<meta charset="utf-8" />
 	</head>
 	<body>
+		<header>
+			<h1>Sistema de turnos medicos</h1>
+			<nav>
+				<a href="../../">Volver</a>
+			</nav>
+		</header>
 		<form id="formulario" action="../../index/reservar/agregar" method="POST" enctype="multipart/form-data">
 		  *Nombre paciente: <input type="text" name="nombre" required><br>
 		  *Email: <input type="email" name="email" required><br>

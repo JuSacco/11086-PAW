@@ -7,7 +7,7 @@
 		<header>
 			<h1>Sistema de turnos medicos</h1>
 			<nav>
-				<a href=<?php echo $url?>>Administracion</a>
+				<a href="../listar">Volver</a>
 			</nav>
 		</header>
 		<h2>Resumen de turno</h1>
@@ -22,7 +22,7 @@
 			<li>Color de pelo: <?php echo $datos['pelo'] ?></li>
 			<li>Fecha del turno: <?php echo $datos['fecturno']?> </li>
 			<li>Hora del turno: <?php echo $datos['hora'] ?> </li>
-			<li>Diagnostico: <?php echo $datos['image']?> </li>
+			<li>Diagnostico: <?php if($datos['image']!= ''){echo '<img src="../../../'.$datos['image'].'">';}?> </li>
 		</ul>
 	</body>
 </html>

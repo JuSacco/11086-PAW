@@ -11,6 +11,7 @@ class dbConnection{
 		$username = $resp['username'];
 		$password = $resp['password'];
 		$this->db = new PDO("mysql:dbname=$dbname;host=$dbhost", $username, $password);
+		$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 }
 ?>
