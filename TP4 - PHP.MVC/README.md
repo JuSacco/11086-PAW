@@ -84,30 +84,30 @@
 				3.Construir el modelo ("Propel.php"): Se creará un archivo con la configuracion necesaria para hacer funcionar el framework
 					#Ejemplo: propel.php:
 						<?php
-							return [
-								'propel' => [
-									'database' => [
-										'connections' => [
-											'dbturnos' => [
-												'adapter'    => 'mysql',
-												'classname'  => 'Propel\Runtime\Connection\ConnectionWrapper',
-												'dsn'        => 'mysql:host=localhost;dbname=my_db_name',
-												'user'       => 'my_db_user',
-												'password'   => 's3cr3t',
-												'attributes' => []
-											]
+						return [
+							'propel' => [
+								'database' => [
+									'connections' => [
+										'dbturnos' => [
+										'adapter'    => 'mysql',
+										'classname'  => 'Propel\Runtime\Connection\ConnectionWrapper',
+										'dsn'        => 'mysql:host=localhost;dbname=my_db_name',
+										'user'       => 'my_db_user',
+										'password'   => 's3cr3t',
+										'attributes' => []
 										]
-									],
-									'runtime' => [
-										'defaultConnection' => 'dbturnos',
-										'connections' => ['dbturnos']
-									],
-									'generator' => [
-										'defaultConnection' => 'dbturnos',
-										'connections' => ['dbturnos']
 									]
+								],
+								'runtime' => [
+									'defaultConnection' => 'dbturnos',
+									'connections' => ['dbturnos']
+								],
+								'generator' => [
+									'defaultConnection' => 'dbturnos',
+									'connections' => ['dbturnos']
 								]
-							];
+							]
+						];
 						?>
 				4.Generar el codigo SQL del esquema: Entrar en la carpeta que contiene el propel.ext y schema.xml y ejecutar: $ propel sql:build
 				5.Generar el modelo de clases: En la misma carpeta ejecutar: $ propel model:build
