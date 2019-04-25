@@ -132,5 +132,52 @@ p::first-line {
 	(y sobre el elemento inmediatamente inferior de la pila, si es que hay), dentro de dicha capa superior.
 	Es un pseudo-elemento que se puede utilizar para crear un fondo que oculte el documento subyacente detras de 
 	la pila de la capa superior.
-	Este pseudo-elemento solo es compatible con algunos navegadores. Dentro de los navegadores mas importantes que no lo soportan esta:
+	Este pseudo-elemento solo es compatible con algunos navegadores. 
+	Dentro de los navegadores mas importantes que no lo soportan esta:
 	Google chrome, Opera, Safari, Android webview
+	
+	
+## 6) ¿Cómo se calcula la prioridad de una regla CSS? Expresarlo como una fórmula matemática.
+La prioridad de la regla será calculada con el "peso" que esta tenga. La regla de mayor peso prevalecerá sobre la de menor peso.
+	Se calcula como: 
+	Peso = ABC -> Donde:
+		A = Cantidad de selectores de ID (Selectores que acceden al atributo 'id' del elemento mediante #).
+		B = Cantidad de selectores de CLASE (Selectores que acceden al atributo 'class' del elemento mediante '.').
+		C = Cantidad de selectores de HTML (Selectores que acceden al tag html).
+	Ejemplos:
+```css
+/* A=1; B=1; C=1 => Peso= 111*/
+#menu .principal div {
+  /* Propiedades */
+}
+```	
+```css
+/* A=1; B=0; C=1 => Peso= 101*/
+#menu div {
+  /* Propiedades */
+}
+```	
+```css
+/* A=0; B=1; C=1 => Peso= 11*/
+.principal div {
+  /* Propiedades */
+}
+```	
+```css
+/* A=0; B=0; C=3 => Peso= 3*/
+ul li a {
+  /* Propiedades */
+}
+```	
+```css
+/* A=1; B=1; C=1 => Peso= 113*/
+#menu .principal div ul li {
+  /* Propiedades */
+}
+```	
+```css
+/* A=1; B=3; C=1 => Peso= 131*/
+#menu .principal .alternativo .movil div {
+  /* Propiedades */
+}
+```	
