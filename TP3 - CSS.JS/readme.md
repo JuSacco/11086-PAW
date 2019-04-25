@@ -59,12 +59,12 @@
 		4) ¿Cuál es el código que hay que insertar en una hoja de estilo para poder usar WebFonts?
 			
 			El codigo es:
-					```
-					@font-face {
-					  font-family: "myFont";
-					  src: url("myFont.woff");
-					}
-					```
+```
+@font-face {
+  font-family: "myFont";
+  src: url("myFont.woff");
+}
+```
 		
 		
 		
