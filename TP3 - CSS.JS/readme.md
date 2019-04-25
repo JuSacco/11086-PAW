@@ -183,3 +183,27 @@ ul li a {
   /* Propiedades */
 }
 ```	
+
+## 7) ¿Qué es el view port? ¿Cómo se configura? ¿qué problema soluciona?
+El viewport o area de visualizacion representa la parte del navegador donde se muestran nuestras paginas web.
+Para configurar y forzar al navegador a definir el tamaño del area de visualizacion igual al tamaño real de la pantall, tenemos que declarar el elemento <<meta>> 
+en la cabecera de nuestros documentos con el nombre viewport y valores que determinan el ancho y la escala que queremos ver. Los valores requeridos son: width e 
+initial-scale para declarar el ancho del area de visualizacion y su escala. 
+El problema que soluciona es el de normalizar la visualizacion de algunso dispositivos que asignan un ancho de, por ejemplo, 980px al area de visualizacion, sin importar
+su tamaño real o el tamaño real de la pantalla. Esto significa que las Media Queries de nuestras hojas de estilo verán un ancho de
+980 píxeles cuando en realidad el tamaño del área de visualización es totalmente diferente. 
+
+Ejemplo:
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ ...
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ ...
+</head>
+<body>
+	...
+</body>
+</html> 
+```
