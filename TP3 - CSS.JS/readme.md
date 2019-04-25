@@ -216,6 +216,7 @@ a los desarrolladores detectar el medio en el que se muestra el documento. Por e
 usando Media Queries podemos determinar si el documento se muestra en un monitor o se
 envía a una impresora, y asignar los estilos apropiados para cada caso. Para este propósito, las
 Media Queries ofrecen las siguientes palabras clave.
+### Tipos de medios
 
 #### all
 	Las propiedades se aplican en todos los medios.
@@ -225,3 +226,30 @@ Media Queries ofrecen las siguientes palabras clave.
 	Las propiedades se aplican cuando la página web se muestra en una pantalla color.
 #### speech
 	Las propiedades se aplican cuando la página web se procesa por un sintetizador de voz. 
+	
+### Caracteristicas 
+	
+#### width
+	Esta palabra clave determina el ancho en que se aplican las propiedades.
+#### height
+	Esta palabra clave determina la altura a la que se aplican las propiedades.
+#### min-width
+	Esta palabra clave determina el ancho mínimo desde el cual que se aplican las propiedades.
+#### max-width
+	Esta palabra clave determina el ancho máximo hasta el cual que se aplican las propiedades.
+#### aspect-ratio
+	Esta palabra clave determina la proporción en la cual que se aplican las propiedades.
+#### orientation
+	Esta palabra clave determina la orientación en la cual que se aplican las propiedades. Los valores disponibles son portrait (vertical) y landscape (horizontal).
+#### resolution
+	Esta palabra clave determina la densidad de píxeles en la cual que se aplican las propiedades. Acepta valores en puntos por pulgada (dpi), puntos por centímetro
+	(dpcm) o por proporción en píxeles (dppx). 
+	
+## 9) ¿En qué circunstancias se pueden utilizar las variables css? ¿Qué problemas pueden traer aparejadas? ¿Cuándo consideras que sería bueno utilizarlas?
+Se pueden utilizar en circunstancias en las cuales hay que repetir un dato en varios elementos, como podría ser, un color principal
+ y un color secundario en una pagina web. Si la web posee muchos elementos y se deseara cambiar la convinacion de colores solo habría que modificar el dato de la variable.
+ 
+Un problema que pueden traer es el de la validez y valores. Cuando se analizan los valores de las propiedades personalizadas, el explorador no sabe donde se utilizarán,
+por lo que debe considerar casi todos los valores como validos. Propiedades y variables personalizadas pueden llevar a declaraciones CSS no válidas, dando lugar al nuevo concepto de válido en tiempo calculado.
+
+## 10) CSS Grid Layout ¿Qué es? Explicar las reglas que intervienen en el armado de una grilla. ¿Qué ventajas y desventajas tiene frente a otros Layouts?
