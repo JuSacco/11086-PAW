@@ -26,7 +26,7 @@ Y aplicamos:
 	En la mayoría de los casos, estos estilos no solo son diferentes de lo que necesitamos,
 	sino que además pueden afectar de forma negativa a nuestro diseño.
 	Por ejemplo, los navegadores asignan márgenes a los elementos que usamos frecuentemente
-	en nuestro documento, como el elemento "<p>". El elemento "<body>" también genera un
+	en nuestro documento, como el elemento <p>. El elemento "<body>" también genera un
 	margen alrededor de su contenido, lo que hace imposible extender otros elementos hasta los
 	límites de la ventana del navegador. Como si esto fuera poco, la forma en la que se configuran
 	los elementos por defecto difiere de un navegador a otro, especialmente cuando
@@ -65,6 +65,22 @@ El codigo es:
   src: url("myFont.woff");
 }
 ```
-		
-		
-		
+
+## 5) ¿Qué son y para qué sirven los pseudoElementos?
+
+Son palabras claves precedidas por "::", estas pueden ser agregadas al final de los selectores 
+para seleccionar una parte determinada de un elemento. Cada pseudoElemento tiene un comportamiento
+y caracteristicas diferentes. 
+### PseudoElementos:
+
+#### ::after
+
+#### ::before
+
+#### ::first-letter
+
+#### ::first-line
+
+#### ::selection
+
+#### ::backdrop
