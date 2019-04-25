@@ -84,43 +84,43 @@
 				3.Construir el modelo ("Propel.php"): Se creará un archivo con la configuracion necesaria para hacer funcionar el framework
 					#Ejemplo: propel.php:
 						<?php
-							return [
-								'propel' => [
-									'database' => [
-										'connections' => [
-											'dbturnos' => [
-												'adapter'    => 'mysql',
-												'classname'  => 'Propel\Runtime\Connection\ConnectionWrapper',
-												'dsn'        => 'mysql:host=localhost;dbname=my_db_name',
-												'user'       => 'my_db_user',
-												'password'   => 's3cr3t',
-												'attributes' => []
-											]
+						return [
+							'propel' => [
+								'database' => [
+									'connections' => [
+										'dbturnos' => [
+										'adapter'    => 'mysql',
+										'classname'  => 'Propel\Runtime\Connection\ConnectionWrapper',
+										'dsn'        => 'mysql:host=localhost;dbname=my_db_name',
+										'user'       => 'my_db_user',
+										'password'   => 's3cr3t',
+										'attributes' => []
 										]
-									],
-									'runtime' => [
-										'defaultConnection' => 'dbturnos',
-										'connections' => ['dbturnos']
-									],
-									'generator' => [
-										'defaultConnection' => 'dbturnos',
-										'connections' => ['dbturnos']
 									]
+								],
+								'runtime' => [
+									'defaultConnection' => 'dbturnos',
+									'connections' => ['dbturnos']
+								],
+								'generator' => [
+									'defaultConnection' => 'dbturnos',
+									'connections' => ['dbturnos']
 								]
-							];
+							]
+						];
 						?>
-					4.Generar el codigo SQL del esquema: Entrar en la carpeta que contiene el propel.ext y schema.xml y ejecutar: $ propel sql:build
-					5.Generar el modelo de clases: En la misma carpeta ejecutar: $ propel model:build
-					Una vez realizado esto, Propel creará 3 clases php para cada tabla en la db. 
-						Clase de modelo(Model class): Representa a una fila en la db.
-						Clase de mapeo(Tablemap class): Ofrece constantes y métodos estáticos principalmente para compatibilidad con versiones anteriores de Propel.
-						Clase de consulta(Query class): Se utiliza para operar en una tabla: recuperar y actualizar filas.
-					Las anteriores clases se crearán vacias, pero heredarán de clases base que se encuentran en el directorio Generated-classes/Base/
-					Estas clases vacias se llaman Stub classes
-					6.Compilar la configuracion de tiempo de ejecucion: Por cuestiones de performance, propel prefiere usar una version de php en vez de estar
-					leyendo desde el archivo de configuracion cada vez que lo necesita. Por lo tanto hay que compilar la version de php de la configuracion con el
-					siguiente comando: $ propel config:convert
-					Este comando lee la configuracion en tiempo de ejecucion y genera un script php relativo que puede ser encontrado en generated-conf/config.php
+				4.Generar el codigo SQL del esquema: Entrar en la carpeta que contiene el propel.ext y schema.xml y ejecutar: $ propel sql:build
+				5.Generar el modelo de clases: En la misma carpeta ejecutar: $ propel model:build
+				Una vez realizado esto, Propel creará 3 clases php para cada tabla en la db. 
+					Clase de modelo(Model class): Representa a una fila en la db.
+					Clase de mapeo(Tablemap class): Ofrece constantes y métodos estáticos principalmente para compatibilidad con versiones anteriores de Propel.
+					Clase de consulta(Query class): Se utiliza para operar en una tabla: recuperar y actualizar filas.
+				Las anteriores clases se crearán vacias, pero heredarán de clases base que se encuentran en el directorio Generated-classes/Base/
+				Estas clases vacias se llaman Stub classes
+				6.Compilar la configuracion de tiempo de ejecucion: Por cuestiones de performance, propel prefiere usar una version de php en vez de estar
+				leyendo desde el archivo de configuracion cada vez que lo necesita. Por lo tanto hay que compilar la version de php de la configuracion con el
+				siguiente comando: $ propel config:convert
+				Este comando lee la configuracion en tiempo de ejecucion y genera un script php relativo que puede ser encontrado en generated-conf/config.php
 					
 			
 			
