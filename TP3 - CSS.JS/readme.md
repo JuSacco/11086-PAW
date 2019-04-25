@@ -266,7 +266,7 @@ Diferencias con otros sistemas de grilla:
 La diferencia entre CSS Grid Layout y CSS Flexbox Layout es que flexbox fue diseñado para una dimensión, es decir, una fila o una columna.
  Grid layout se diseñó para alinear de forma bidimensional: filas y columnas al mismo tiempo.
 
-Ventajas respecto a Bootstrap / Foundation. La principal ventaja es que ya no hay mas limitaciones de 12 columnas. Como la cuadrícula Bootstrap está dividida en doce columnas, podría haber problemas en un diseño de 5 columnas, 7 columnas, 11 columnas. O cualquier cosa que no sume 12.
+Ventajas respecto a Bootstrap / Foundation: La principal ventaja es que ya no hay mas limitaciones de 12 columnas. Como la cuadrícula Bootstrap está dividida en doce columnas, podría haber problemas en un diseño de 5 columnas, 7 columnas, 11 columnas. O cualquier cosa que no sume 12.
  CSS Grid Puede hacer que nuestra cuadrícula tenga exactamente la cantidad de columnas que deseamos ya sean 5 columnas, 7 columnas , 9 columnas o una cantidad explícita.
  Otra ventaja destacable es el soporte del navegador, el 87% del trafico web global es compatible con CSS Grid.
  
@@ -306,4 +306,4 @@ Simpleza en el codigo (Grid vs Bootstrap):
 </html> 
 ```
 
-##11) ¿Qué puntos en común y en que se diferencian las Material Design Guidelines de Google y las Human Interface Guidelines de Apple?
+## 11) ¿Qué puntos en común y en que se diferencian las Material Design Guidelines de Google y las Human Interface Guidelines de Apple?
