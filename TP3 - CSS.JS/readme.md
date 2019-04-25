@@ -10,7 +10,7 @@ La herencia se aplica de modo que si tenemos la siguiente estructura:
 		<p>Hola mundo!</p>
 	</section>
 ```
-		Y aplicamos:
+Y aplicamos:
 ```css
 	section {
 		font-size: 20px;
