@@ -74,13 +74,63 @@ y caracteristicas diferentes.
 ### PseudoElementos:
 
 #### ::after
+	Crea un pseudo-elemento que es el ultimo hijo de el elemento seleccionado. A menudo es usado para agregar 
+	contenido cosmetico con la propiedad "content" de css.
+	Ejemplo:
+```css
+/* Agregar una flecha despues de los links */
+a::after {
+  content: "→";
+}
+```
 
 #### ::before
+	Crea un pseudo-elemento que es el primer hijo de el elemento seleccionado. A menudo es usado para agregar 
+	contenido cosmetico con la propiedad "content" de css.
+	Ejemplo:
+```css
+/* Agregar un corazon antes de los links */
+a::before {
+  content: "♥";
+}
+```
 
 #### ::first-letter
+	Es un pseudo-elemento que aplica estilo a la primer letra de la primer linea en un elemento de tipo block,
+	pero solo lo hará cuando no este precedido por otro contenido como imagenes, o tablas en linea.
+	Ejemplo:
+```css
+/* Selecciona la primer letra de <p> */
+p::first-letter {
+  font-size: 130%;
+}
+```
 
 #### ::first-line
+	Es un pseudo-elemento que aplica estilos a la primer linea de un elemento de tipo block. 
+	Ejemplo:
+```css
+/* Selecciona la primer linea de <p> */
+p::first-line {
+  color: red;
+}
+```	
 
 #### ::selection
+	Es un pseudo-elemento que aplica estilos a una parte del documento que fue seleccionada por el usuario
+	(haciendo clic y deslizando el mouse para seleccionar un texto)
+	Ejemplo:
+```css
+/* La seleccion será de color cyan */
+::selection {
+  background-color: cyan;
+}
+```		
 
 #### ::backdrop
+	Este pseudo-elemento es una caja que se muestra inmediatamente debajo del elemento 
+	(y sobre el elemento inmediatamente inferior de la pila, si es que hay), dentro de dicha capa superior.
+	Es un pseudo-elemento que se puede utilizar para crear un fondo que oculte el documento subyacente detras de 
+	la pila de la capa superior.
+	Este pseudo-elemento solo es compatible con algunos navegadores. Dentro de los navegadores mas importantes que no lo soportan esta:
+	Google chrome, Opera, Safari, Android webview
