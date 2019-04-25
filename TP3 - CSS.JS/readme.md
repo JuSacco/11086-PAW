@@ -139,12 +139,12 @@ p::first-line {
 	
 ## 6) ¿Cómo se calcula la prioridad de una regla CSS? Expresarlo como una fórmula matemática.
 La prioridad de la regla será calculada con el "peso" que esta tenga. La regla de mayor peso prevalecerá sobre la de menor peso.
-	Se calcula como: 
-	Peso = ABC -> Donde:
-		A = Cantidad de selectores de ID (Selectores que acceden al atributo 'id' del elemento mediante #).
-		B = Cantidad de selectores de CLASE (Selectores que acceden al atributo 'class' del elemento mediante '.').
-		C = Cantidad de selectores de HTML (Selectores que acceden al tag html).
-	Ejemplos:
+		Se calcula como: 
+		Peso = ABC -> Donde:
+			A = Cantidad de selectores de ID (Selectores que acceden al atributo 'id' del elemento mediante #).
+			B = Cantidad de selectores de CLASE (Selectores que acceden al atributo 'class' del elemento mediante '.').
+			C = Cantidad de selectores de HTML (Selectores que acceden al tag html).
+		Ejemplos:
 ```css
 /* A=1; B=1; C=1 => Peso= 111*/
 #menu .principal div {
