@@ -34,7 +34,7 @@
 			crear un diseño coherente, cualquiera que sea el dispositivo en el que se abre, tenemos que
 			resetear algunos de los estilos por defecto, o todos.
 			
-##3) ¿Qué es el CSS box model?
+## 3) ¿Qué es el CSS box model?
 		
 		Es un conjunto de reglas que determinan cómo se van a mostrar las cajas en pantalla (cada
 		elemento se representa como una caja rectangular), el espacio que ocupan, y cómo se organizan
@@ -56,9 +56,9 @@
 				cajas debe estar incluido dentro de otra caja que es la encargada de configurar sus
 				características
 				
-##4) ¿Cuál es el código que hay que insertar en una hoja de estilo para poder usar WebFonts?
+## 4) ¿Cuál es el código que hay que insertar en una hoja de estilo para poder usar WebFonts?
 	
-	El codigo es:
+El codigo es:
 ```css
 @font-face {
   font-family: "myFont";
