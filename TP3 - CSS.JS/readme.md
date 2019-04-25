@@ -26,7 +26,7 @@ Es necesario porque los navegadores dan estilos por defecto a diferentes element
 En la mayoría de los casos, estos estilos no solo son diferentes de lo que necesitamos,
 sino que además pueden afectar de forma negativa a nuestro diseño.
 Por ejemplo, los navegadores asignan márgenes a los elementos que usamos frecuentemente
-en nuestro documento, como el elemento <p>. El elemento <body> también genera un
+en nuestro documento, como el elemento "<p>". El elemento "<body>" también genera un
 margen alrededor de su contenido, lo que hace imposible extender otros elementos hasta los
 límites de la ventana del navegador. Como si esto fuera poco, la forma en la que se configuran
 los elementos por defecto difiere de un navegador a otro, especialmente cuando
