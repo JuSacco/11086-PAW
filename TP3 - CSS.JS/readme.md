@@ -240,10 +240,11 @@ Media Queries ofrecen las siguientes palabras clave.
 #### aspect-ratio
 	Esta palabra clave determina la proporción en la cual que se aplican las propiedades.
 #### orientation
-	Esta palabra clave determina la orientación en la cual que se aplican las propiedades. Los valores disponibles son portrait (vertical) y landscape (horizontal).
+	Esta palabra clave determina la orientación en la cual que se aplican las propiedades. 
+	Los valores disponibles son portrait (vertical) y landscape (horizontal).
 #### resolution
-	Esta palabra clave determina la densidad de píxeles en la cual que se aplican las propiedades. Acepta valores en puntos por pulgada (dpi), puntos por centímetro
-	(dpcm) o por proporción en píxeles (dppx). 
+	Esta palabra clave determina la densidad de píxeles en la cual que se aplican las propiedades. 
+	Acepta valores en puntos por pulgada (dpi), puntos por centímetro (dpcm) o por proporción en píxeles (dppx). 
 	
 ## 9) ¿En qué circunstancias se pueden utilizar las variables css? ¿Qué problemas pueden traer aparejadas? ¿Cuándo consideras que sería bueno utilizarlas?
 Se pueden utilizar en circunstancias en las cuales hay que repetir un dato en varios elementos, como podría ser, un color principal
@@ -253,3 +254,56 @@ Un problema que pueden traer es el de la validez y valores. Cuando se analizan l
 por lo que debe considerar casi todos los valores como validos. Propiedades y variables personalizadas pueden llevar a declaraciones CSS no válidas, dando lugar al nuevo concepto de válido en tiempo calculado.
 
 ## 10) CSS Grid Layout ¿Qué es? Explicar las reglas que intervienen en el armado de una grilla. ¿Qué ventajas y desventajas tiene frente a otros Layouts?
+Es un sistema de rejilla(Una rejilla es un conjunto de líneas horizontales y verticales que se intersectan) bidimensional para CSS. Contiene funciones que permiten dividir a una pagina en areas o regiones principales, por definir la relacion en terminos de tamaño, posicion y capas entre partes de un control construido a partir de primitivas HTML.
+
+Al igual que las tablas, el grid layout permite a un autor alinear elementos en columnas y filas. Sin embargo, con CSS grid son posibles muchos más diseños y de forma más sencilla que con las tablas. Por ejemplo, los elementos secundarios de un contenedor de cuadrícula podrían posicionarse para que se solapen y se superpongan, de forma similar a los elementos posicionados en CSS.
+
+Al armar una grilla debemos definir un contenedor, luego aplicarle la propiedad "display: grid" y sus hijos heredarán este sistema de grilla.
+En forma basica, sus hijos conteneran dos propiedades "grid-column: cantidad_ocupada / cantidad_total" y "grid-row: cantidad_ocupada / cantidad_total"
+
+Diferencias con otros sistemas de grilla:
+
+La diferencia entre CSS Grid Layout y CSS Flexbox Layout es que flexbox fue diseñado para una dimensión, es decir, una fila o una columna.
+ Grid layout se diseñó para alinear de forma bidimensional: filas y columnas al mismo tiempo.
+
+Ventajas respecto a Bootstrap / Foundation. La principal ventaja es que ya no hay mas limitaciones de 12 columnas. Como la cuadrícula Bootstrap está dividida en doce columnas, podría haber problemas en un diseño de 5 columnas, 7 columnas, 11 columnas. O cualquier cosa que no sume 12.
+ CSS Grid Puede hacer que nuestra cuadrícula tenga exactamente la cantidad de columnas que deseamos ya sean 5 columnas, 7 columnas , 9 columnas o una cantidad explícita.
+ Otra ventaja destacable es el soporte del navegador, el 87% del trafico web global es compatible con CSS Grid.
+ 
+Simpleza en el codigo (Grid vs Bootstrap): 
+
+##### CSS Grid
+```css
+@media screen and (max-width: 680px) {
+  .header {
+    grid-column: span 6;
+  }
+
+  .menu {
+    grid-row: 1;
+    grid-column: span 6;
+  }
+
+  .content {
+    grid-column: span 12;
+  }
+}
+```
+
+##### Bootstrap
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ ...
+</head>
+<body>
+	<div class="row">
+	  <div class="col-md-8">.col-md-8</div>
+	  <div class="col-md-4">.col-md-4</div>
+	</div>
+</body>
+</html> 
+```
+
+##11) ¿Qué puntos en común y en que se diferencian las Material Design Guidelines de Google y las Human Interface Guidelines de Apple?
