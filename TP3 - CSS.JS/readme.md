@@ -208,3 +208,20 @@ Ejemplo:
 </body>
 </html> 
 ```
+
+## 8) ¿Qué son las media querys? Enumere los distintos tipos de medios y las principales características de cada uno de ellos
+
+Una Media Query es una regla reservada en CSS que se incorporó con el propósito de permitir
+a los desarrolladores detectar el medio en el que se muestra el documento. Por ejemplo,
+usando Media Queries podemos determinar si el documento se muestra en un monitor o se
+envía a una impresora, y asignar los estilos apropiados para cada caso. Para este propósito, las
+Media Queries ofrecen las siguientes palabras clave.
+
+#### all
+	Las propiedades se aplican en todos los medios.
+#### print
+	Las propiedades se aplican cuando la página web se envía a una impresora.
+#### screen
+	Las propiedades se aplican cuando la página web se muestra en una pantalla color.
+#### speech
+	Las propiedades se aplican cuando la página web se procesa por un sintetizador de voz. 
