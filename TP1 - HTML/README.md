@@ -14,10 +14,10 @@ el color de fondo, ancho y alto, la ruta de una imagen o recurso, etc.
 
 ### 2. ¿Cuál es la utilidad de HTML? ¿Qué conjunto mínimo de tags debe contener un documento elaborado en este lenguaje? Describa brevemente su utilidad.
 La utilidad del HTML es efinir el contenido y organización de como estará conformada una pagina web.
-	<!DOCTYPE html>: Indica el tipo de documento que es.
-	<html>: Define el inicio de codigo html
-	<head>: Define la cabecera, donde se encontrará informacion sobre el documento, que generalmente, no es mostrada en el cuerpo de la pagina.
-	<body>: Define el cuerpo o contenido principal del documento. Esta es la parte que se muestra en el navegador.
+		<!DOCTYPE html>: Indica el tipo de documento que es.
+		<html>: Define el inicio de codigo html
+		<head>: Define la cabecera, donde se encontrará informacion sobre el documento, que generalmente, no es mostrada en el cuerpo de la pagina.
+		<body>: Define el cuerpo o contenido principal del documento. Esta es la parte que se muestra en el navegador.
 
 ### 3. ¿Cuál es la utilidad e importancia de los enlaces o links entre páginas? ¿Qué significa hipertexto? ¿Un link solo puede apuntar a otra página? ¿Qué importancia tiene esto último?
 La utilidad radica en que dentro de un texto se puede enlazar a otros textos o recursos por estos enlaces.
