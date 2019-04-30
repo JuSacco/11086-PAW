@@ -307,3 +307,41 @@ Simpleza en el codigo (Grid vs Bootstrap):
 ```
 
 ## 11) ¿Qué puntos en común y en que se diferencian las Material Design Guidelines de Google y las Human Interface Guidelines de Apple?
+
+#### Material Design (Google)
+La guia de diseño de Google propone utilizar "Material Design", que es, un lenguaje visual que sintetiza los principios clasicos del buen diseño con tecnologia de innovacion y ciencia.
+En general, los objetivos que busca la guia, es poder crear un lenguaje visual y desarrollar un sistema subyacente unico que unifique la experiencia de usuario sin importar la plataforma en la que este se encuentre.
+Los principios en los que Material fue inspirado es el mundo fisico real y sus texturas, incluyendo como refleja la luz y se emiten las sombras. 
+Material Design propone diseños especificos que involucran tipografias, grillas, espacios, escalas, colores, letras en negrita y 
+otros diferentes metodos para dar una jerarquía, un sentido y foco a los usuarios.
+Ademas, propone darle un significado a los movimientos, ya que estos capturan la atencion del usuario y 
+a medida que aparecen elementos en la pantalla, transforman y reorganizan el entorno, generando nuevas transformaciones.
+
+#### Human Interface Guidelines (Apple)
+Apple propone el uso de diferentes herramientas (algunas pagas) para diseñar rapido y preciso. Entre ellas propone: Sketch, Photoshop y XD templates.
+Ademas, da una guia para cada plataforma de su propiedad: iOS, macOS, watchOS, tvOS. 
+Dentro de las guias remarca que el diseño de las aplicaciones debe cumplir con las altas expectativas de calidad y funcionalidad.
+Propone que una app debe contar con: Claridad (referido a la claridad de los textos y convinacion de colores), 
+Deferencia (un movimiento fluido y crujiente),
+Profundidad (diferentes capas visuales y movimientos realistas al transmitir la jerarquía).
+
+Sobre los principios de diseño plantea que una app debe tener una estetica integral, consistencia,
+ manipulacion directa (ver acciones del usuario en forma inmediata), proporcionar feedback (como comunicar el progreso de las operaciones, anunciar que el usuario espere una carga, etc), 
+ metaforas (hacer objetos virtuales que el usuario pueda relacionar con el mundo real), control de usuario (dejar al usuario que tenga un control sobre la aplicacion, no obstante a esto, si una accion es peligrosa se debe advertir de todas formas).
+
+#### Similitudes
+###### Frameworks
+Apple propone el uso de UIKit, un framework que define los elementos comunes de una interfaz.
+Google propone el framework Material Components que posee componentes como botones, estructuras,
+ herramientas para convinar colores y movimientos. En sus repositorios dan soporte para diseño web,
+ diseño ios, android y flutter. 
+ 
+
+###### Principios de diseño
+Ambas empresas plantean respetar una serie de principios de diseño con el objetivo de darle al usuario la mejor UX posible 
+
+
+#### Diferencias
+Apple tiene diferentes guias de diseño para sus diferentes plataformas, en cambio, google utiliza una misma guia de diseño
+para todas las plataformas (incluyendo aplicaciones para iOS).
+Para la creacion de estilos y temas google brinda herramientas desarrolladas por ellos. Mientras que, Apple recomienda el uso de herramientas de terceros.
