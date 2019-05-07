@@ -5,18 +5,17 @@ body{
   width:100vw;
   font-family: 'Raleway', sans-serif;
   background: linear-gradient(to bottom right, #777, #ddd);
-  height: 100vh;
   color: white;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
 }
 
 h1{
   text-align:center;
   font-size:3em;
-  margin: auto;
+  margin: 0.1em auto;
 }
 #back,
 #next{
@@ -24,24 +23,15 @@ h1{
 }
 
 #contentDot{
-
-position: absolute;
-
-height: 2em;
-
-bottom: 0;
-
-background: #00000061;
-
-width: 100%;
-
-display: flex;
-
-flex-direction: row;
-
-justify-content: space-around;
-
-align-items: center;
+position: absolute;
+height: 2em;
+bottom: 0;
+background: #00000061;
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
 }
 
 .dot{
@@ -60,35 +50,48 @@ width: 1em;
   
 height: 1em;
 }
-#back {
-
-position: absolute;
-
-font-size: 8em;
-
-top: 50%;
-
-left: 0;
-}
 .activeDot{
-  
-background-color: #8c8c8c;
+  background-color: #8c8c8c;
 }
+#back {
+  position: absolute;
+  font-size: 8em;
+  top: 50%;
+  left: 0;
+}
+
+@keyframes fade-in {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+@keyframes fade-out {
+  from { 
+    opacity: 1; 
+  }
+  to { 
+    opacity: 0;
+  }
+}
+
+
+
 #next {
-
-position: absolute;
-
-font-size: 8em;
-
-top: 50%;
-
-right: 0;
+  position: absolute;
+  font-size: 8em;
+  top: 50%;
+  right: 0;
 }
+
 #slide{
-  max-width: 90vw;
   display: block;
-  margin: auto;
+  margin: 1em auto;
   position: relative;
+  width: 96vw;
 }
 #estado{
   position:absolute;
@@ -115,32 +118,24 @@ right: 0;
 }
 #contenedorImg{
   width: 100%;
+  height: 100%;
   }
 
-.activa{
-  border: 2px solid black;
-}
 
 li:not(.activa){
+  animation: fade-out 1.5s;
   display:none;
 }
 
-img {
-  display:block;
-  max-width: 80vw;
-  width: 70vw;
-  height: 70vh;
+.activa{
+  border: 1px solid black;
+  animation: fade-in 1.5s;
+  height: 100%;
 }
 
-li {
+img {
+  width: 100%;
   height: 100%;
-  min-width: 100%;
-  float: left;
-  list-style: none;
-  background-color: black;
-  background-position: center center;
-  background-repeat: no-repeat;
-  min-height: 100%;
 }
 
 li img{
@@ -154,7 +149,7 @@ li img{
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
   }
   
   h1{
@@ -164,21 +159,16 @@ li img{
   }
   
   #back {
-  position: absolute;
-  font-size: 8em;
-  top: 50%;
+  font-size: 1.5em;
   }
   
   #next {
-  position: absolute;
-  font-size: 8em;
-  top: 50%;
+  font-size: 1.5em;
   }
 
   #slide{
-    max-width: 60vw;
     display: block;
-    margin: auto;
+    margin: 0em auto;
   }
   #estado{
     position:absolute;
@@ -197,24 +187,25 @@ li img{
     padding:.4em;
   }
   #contenedorImg{
-    width: 100%;
+    height: 100%;
     }
   
   img {
-    display:block;
-    width:100%;
-    min-width:100%;
-    min-height: 100%;
   }
   
   li {
-    height: 100%;
-    min-width: 100%;
-    float: left;
-    min-height: 100%;
   }
   
   li img{
-    transition: opacity 1.4s;
   }
+  #contentDot{
+
+    height: 1.6em;
+
+    }
+
+  .dot{
+width: 0.5em;
+height: 0.5em;
+}
 }
