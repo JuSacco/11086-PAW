@@ -8,7 +8,8 @@ Carrusel.estadoElemento,
 Carrusel.imgActiva,
 Carrusel.cantImgCargadas,
 Carrusel.cantImg = Carrusel.imagenes.length;
-Carrusel.timeOut = 4000;
+Carrusel.timeOut = 30000;
+Carrusel.animationTime = "1s";
 Carrusel.estadoSlide = "auto";
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 Carrusel.init = function (contenedor) {
   var btnNext,btnBack;
   Carrusel.container = document.getElementById(contenedor);
+  Carrusel.container.style.setProperty("--animation-time",Carrusel.animationTime);
   ///////////////////////EVENT NEXT//////////////////////
   btnNext = document.getElementById("next");
   btnBack = document.getElementById("back");
@@ -32,32 +34,47 @@ Carrusel.init = function (contenedor) {
   btnNext.addEventListener("click",function(){
     var ul = document.getElementById("contenedorImg");
     ul.children[Carrusel.imgActiva].classList.remove("activa");
+    if(Carrusel.imgActiva == Carrusel.cantImg-1){
+      ul.children[0].classList.remove("proxima");
+    }
     document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
     Carrusel.imgActiva++;
     if(Carrusel.imgActiva < Carrusel.cantImg-1){
+      ul.children[Carrusel.imgActiva].classList.remove("proxima");
       ul.children[Carrusel.imgActiva].classList.add("activa");
+      ul.children[Carrusel.imgActiva+1].classList.add("proxima");
       document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
     }else {
       Carrusel.imgActiva = 0;
       ul.children[Carrusel.imgActiva].classList.add("activa");
+      ul.children[Carrusel.imgActiva+1].classList.add("proxima");
       document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
     }
-  });///////////////////////EVENT NEXT//////////////////////
+  });
+
   /////////////////////EVENT BACK//////////////////////
-    btnBack.addEventListener("click",function(){
-    var ul = document.getElementById("contenedorImg")
+  btnBack.addEventListener("click",function(){
+    var ul = document.getElementById("contenedorImg");
     ul.children[Carrusel.imgActiva].classList.remove("activa");
+    ul.children[Carrusel.imgActiva+1].classList.remove("proxima");
     document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
     Carrusel.imgActiva--;
     if(Carrusel.imgActiva > 0){
+      if (Carrusel.imgActiva == Carrusel.cantImg-1){
+        ul.children[0].classList.add("proxima");
+      }else{
+        ul.children[Carrusel.imgActiva+1].classList.add("proxima");
+      }
       ul.children[Carrusel.imgActiva].classList.add("activa");
       document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
     }else {
       Carrusel.imgActiva = Carrusel.cantImg-1;
       ul.children[Carrusel.imgActiva].classList.add("activa");
+      ul.children[0].classList.add("proxima");
       document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
     }
-  });/////////////////////EVENT BACK//////////////////////
+  });
+
   Carrusel.crearEstructura();
   Carrusel.estadoElemento = document.querySelector('#estado').children[0];
   Carrusel.cargar();
@@ -82,16 +99,28 @@ Carrusel.autoSlide = function(){
       clearInterval(interval)
     }
     if(Carrusel.imgActiva < Carrusel.cantImg-1){
+      //remove
       ul.children[Carrusel.imgActiva].classList.remove("activa");
+      ul.children[Carrusel.imgActiva+1].classList.remove("proxima");
       document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
+
       Carrusel.imgActiva++;
+
+      //add
       ul.children[Carrusel.imgActiva].classList.add("activa");
+      if (Carrusel.imgActiva == Carrusel.cantImg-1){
+        ul.children[0].classList.add("proxima");
+      }else{
+        ul.children[Carrusel.imgActiva+1].classList.add("proxima");
+      }
       document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
     }else{
       ul.children[Carrusel.imgActiva].classList.remove("activa");
+      ul.children[0].classList.remove("proxima");
       document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
       Carrusel.imgActiva = 0;
       ul.children[Carrusel.imgActiva].classList.add("activa");
+      ul.children[Carrusel.imgActiva+1].classList.add("proxima");
       document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
     }
   }, Carrusel.timeOut);
@@ -116,10 +145,10 @@ Carrusel.cambiarRepresentacion = function(){
   for ( var i = 0, len = select.options.length; i < len; i++ ) {
     opt = select.options[i];
     if ( opt.selected === true ) {
-        if(opt.value == "numeros"){
+        if(opt.value == "slideshowDer"){
           Carrusel.representacion = 0;
         }
-        if(opt.value == "letras"){
+        if(opt.value == "slideShowArr"){
           Carrusel.representacion = 1;
         }
         if(opt.value == "dibujos"){
@@ -141,6 +170,7 @@ Carrusel.cargar = function() {
   fragment = Carrusel.cargarContenedorImg();
   Carrusel.container.insertBefore( fragment, Carrusel.container.firstChild );
   document.getElementById("contenedorImg").children[0].classList.add("activa");
+  document.getElementById("contenedorImg").children[1].classList.add("proxima");
   Carrusel.imgActiva = 0;
   document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
 };
@@ -168,9 +198,15 @@ Carrusel.cargarContenedorImg = function() {
 Carrusel.pasarImgDot = function(){
   var span = event.target, ul = document.getElementById("contenedorImg");
   ul.children[Carrusel.imgActiva].classList.remove("activa");
+  ul.children[Carrusel.imgActiva+1].classList.remove("proxima");
   document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
-  Carrusel.imgActiva = span.dataset.nroImg;
+  Carrusel.imgActiva = Number(span.dataset.nroImg);
   document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
+  if(Carrusel.imgActiva == Carrusel.cantImg-1){
+    ul.children[0].classList.add("proxima");
+  }else{
+    ul.children[Carrusel.imgActiva+1].classList.add("proxima");
+  }
   ul.children[Carrusel.imgActiva].classList.add("activa");
 }
 // return an <li> with a <img> in it

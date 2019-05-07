@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	margin: 0.2em auto;
+	margin: 0em auto;
 	align-content: center;
 }
 body {
