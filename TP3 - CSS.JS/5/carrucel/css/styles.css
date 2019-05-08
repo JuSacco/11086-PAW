@@ -11,7 +11,6 @@ body{
   flex-direction: column;
   justify-content: start;
   z-index:1;
-
 }
 
 h1{
@@ -23,6 +22,8 @@ h1{
 #back,
 #next{
   background-color: #00000069;
+  transition: .5s ease-in-out;
+  transition-property: all;
 }
 
 #contentDot{
@@ -35,6 +36,7 @@ h1{
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  z-index: 100;
 }
 
 .dot{
@@ -55,56 +57,120 @@ h1{
   position: absolute;
   font-size: 8em;
   top: 50%;
-  left: 0;
+  left: -5%;
+  z-index: 10;
+}
+#back:hover {
+  left:0%;
+}
+#next:hover{
+  right:0%;
 }
 
-@keyframes fade-in {
-  from { 
-    top: -100%; 
-    z-index:-10;
-  }
-  to { 
-    top: 0; 
-    z-index:10;
-  }
+@keyframes zoom-fade-in {
+   0% {
+      top:0;
+      right:0;
+      transform: scale(0);
+     }
+   100% {
+      top:0;
+      left:0;
+      transform:scale(1);
+    }
 }
 
-@keyframes fade-out {
-  from { 
-    top: 0; 
-    z-index:10;
-  }
-  to { 
-    top: -100%; 
-    z-index:-10;
-  }
+@keyframes zoom-fade-out {
+   0% {
+      top:0;
+      right:0;
+      transform: scale(1);
+     }
+   100% {
+      top:0;
+      left:0;
+      transform:scale(0);
+    }
+}
+
+@keyframes right-fade-in {
+   0% {
+      top:0;
+      right:-100%;
+     }
+   100% {
+      top:0;
+      right:0;
+    }
+}
+@keyframes right-fade-out {
+   0% {
+      top:0;
+      left:0;
+     }
+   100% {
+      top:0;
+      left:-100%;
+    }
+}
+
+@keyframes top-fade-in {
+   0% {
+      top:-100%;
+      right:0;
+     }
+   100% {
+      top:0;
+      right:0;
+    }
+}
+@keyframes top-fade-out {
+   0% {
+      bottom:0;
+      left:0;
+     }
+   100% {
+      bottom:-100%;
+      left:0;
+    }
 }
 
 
 
-li:not(.activa):not(.proxima){
-  display:none;
+li{
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
 }
-
 
 .activa{
   border: 1px solid black;
-  animation: fade-out var(--animation-time);
   height: 100%;
   width:100%;
-}
-
-.proxima{
-  animation: fade-in var(--animation-time);
   position: absolute;
-  top: -100%;
+  display: block;
+  z-index: 3;
+  top: 0;
+  animation: var(--animation-type-in);
+  animation-duration: var(--animation-time);
 }
 
+.reset img{
+  opacity: 1 !important;
+  animation: var(--animation-type-out);
+  animation-duration: var(--animation-time);
+}
+
+li:not(.activa):not(.reset){
+  opacity: 0;
+}
 #next {
   position: absolute;
   font-size: 8em;
   top: 50%;
-  right: 0;
+  right: -5%;
+  z-index: 10;
 }
 
 #slide{
@@ -113,6 +179,9 @@ li:not(.activa):not(.proxima){
   position: relative;
   width: 96vw;
   overflow: hidden;
+  z-index: 100;
+  padding: 0;
+  height: 100%;
 }
 #estado{
   position:absolute;
@@ -120,10 +189,11 @@ li:not(.activa):not(.proxima){
   height:100%;
   top:0;
   left:0;
-  background-color:#00000063;
+  background-color:#0000007d;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index:200;
 }
 #estado span{
   top:50%;
@@ -137,21 +207,32 @@ li:not(.activa):not(.proxima){
   display: inline-block;
   box-shadow: 20px 20px 18px 0px #00000080;
 }
+
 #contenedorImg{
-  width: 100%;
-  height: 100%;
+  position:absolute;
+  width:100%;
+  z-index: 10;
+  display: block;
   overflow: hidden;
-  position: relative;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
 }
 
-
-img {
-  width: 100%;
-  height: 100%;
+img { 
+  position:relative;  
+  z-index:1; 
+  min-height:100%;
+  min-width:100%;
 }
 
 li img{
-  transition: opacity 1.4s;
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  min-width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -171,11 +252,11 @@ li img{
   }
   
   #back {
-  font-size: 1.5em;
+  font-size: 3.5em;
   }
   
   #next {
-  font-size: 1.5em;
+  font-size: 3.5em;
   }
 
   #slide{

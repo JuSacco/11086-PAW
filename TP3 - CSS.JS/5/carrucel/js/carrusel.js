@@ -9,7 +9,7 @@ Carrusel.imgActiva,
 Carrusel.cantImgCargadas,
 Carrusel.cantImg = Carrusel.imagenes.length;
 Carrusel.timeOut = 30000;
-Carrusel.animationTime = "1s";
+Carrusel.animationTime = "1.5s";
 Carrusel.estadoSlide = "auto";
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -32,53 +32,52 @@ Carrusel.init = function (contenedor) {
     }
   });
   btnNext.addEventListener("click",function(){
-    var ul = document.getElementById("contenedorImg");
-    ul.children[Carrusel.imgActiva].classList.remove("activa");
-    if(Carrusel.imgActiva == Carrusel.cantImg-1){
-      ul.children[0].classList.remove("proxima");
-    }
-    document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
-    Carrusel.imgActiva++;
-    if(Carrusel.imgActiva < Carrusel.cantImg-1){
-      ul.children[Carrusel.imgActiva].classList.remove("proxima");
-      ul.children[Carrusel.imgActiva].classList.add("activa");
-      ul.children[Carrusel.imgActiva+1].classList.add("proxima");
-      document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
-    }else {
-      Carrusel.imgActiva = 0;
-      ul.children[Carrusel.imgActiva].classList.add("activa");
-      ul.children[Carrusel.imgActiva+1].classList.add("proxima");
-      document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
-    }
+    Carrusel.setActivo("adelante")
   });
 
   /////////////////////EVENT BACK//////////////////////
   btnBack.addEventListener("click",function(){
-    var ul = document.getElementById("contenedorImg");
-    ul.children[Carrusel.imgActiva].classList.remove("activa");
-    ul.children[Carrusel.imgActiva+1].classList.remove("proxima");
-    document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
-    Carrusel.imgActiva--;
-    if(Carrusel.imgActiva > 0){
-      if (Carrusel.imgActiva == Carrusel.cantImg-1){
-        ul.children[0].classList.add("proxima");
-      }else{
-        ul.children[Carrusel.imgActiva+1].classList.add("proxima");
-      }
-      ul.children[Carrusel.imgActiva].classList.add("activa");
-      document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
-    }else {
-      Carrusel.imgActiva = Carrusel.cantImg-1;
-      ul.children[Carrusel.imgActiva].classList.add("activa");
-      ul.children[0].classList.add("proxima");
-      document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
-    }
+    Carrusel.setActivo("atras")
   });
 
   Carrusel.crearEstructura();
   Carrusel.estadoElemento = document.querySelector('#estado').children[0];
   Carrusel.cargar();
   Carrusel.autoSlide();
+  images = document.getElementsByTagName("img");
+}
+
+Carrusel.setActivo = function(direccion){
+   var ul = document.getElementById("contenedorImg");
+    if(document.getElementsByClassName("reset").length>0){
+        document.getElementsByClassName("reset")[0].classList.remove("reset");
+    }
+    document.getElementsByClassName("activa")[0].classList.add("reset");
+    document.getElementsByClassName("activa")[0].classList.remove("activa");
+    document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
+    if(direccion == "atras"){
+        if(Carrusel.imgActiva == 0){
+            Carrusel.imgActiva = Carrusel.cantImg-1;
+        }else{
+            if(Carrusel.imgActiva == Carrusel.cantImg-1){
+                Carrusel.imgActiva --;
+            }else{
+                if(Carrusel.imgActiva>0 && Carrusel.imgActiva<Carrusel.cantImg-1){
+                    Carrusel.imgActiva --;
+                }                 
+            }
+        }
+        ul.children[Carrusel.imgActiva].classList.add("activa"); 
+    }
+    if(direccion == "adelante"){
+      if(Carrusel.imgActiva <  Carrusel.cantImg-1){
+          Carrusel.imgActiva++;  
+      }else{
+          Carrusel.imgActiva = 0;
+      }      
+      ul.children[Carrusel.imgActiva].classList.add("activa");
+      document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
+    }
 }
 
 Carrusel.reinit = function (){
@@ -97,32 +96,10 @@ Carrusel.autoSlide = function(){
   interval = setInterval(() => {
     if(Carrusel.estadoSlide != "auto"){
       clearInterval(interval)
-    }
-    if(Carrusel.imgActiva < Carrusel.cantImg-1){
-      //remove
-      ul.children[Carrusel.imgActiva].classList.remove("activa");
-      ul.children[Carrusel.imgActiva+1].classList.remove("proxima");
-      document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
-
-      Carrusel.imgActiva++;
-
-      //add
-      ul.children[Carrusel.imgActiva].classList.add("activa");
-      if (Carrusel.imgActiva == Carrusel.cantImg-1){
-        ul.children[0].classList.add("proxima");
-      }else{
-        ul.children[Carrusel.imgActiva+1].classList.add("proxima");
-      }
-      document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
     }else{
-      ul.children[Carrusel.imgActiva].classList.remove("activa");
-      ul.children[0].classList.remove("proxima");
-      document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.remove("activeDot");
-      Carrusel.imgActiva = 0;
-      ul.children[Carrusel.imgActiva].classList.add("activa");
-      ul.children[Carrusel.imgActiva+1].classList.add("proxima");
-      document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
+        Carrusel.setActivo("adelante");
     }
+    
   }, Carrusel.timeOut);
 }
 
@@ -146,18 +123,24 @@ Carrusel.cambiarRepresentacion = function(){
     opt = select.options[i];
     if ( opt.selected === true ) {
         if(opt.value == "slideshowDer"){
-          Carrusel.representacion = 0;
+          Carrusel.container.style.setProperty("--animation-time",Carrusel.animationTime);
+          document.getElementById("contenedorImg").style.setProperty("--animation-type-in","right-fade-in");
+          document.getElementById("contenedorImg").style.setProperty("--animation-type-out","right-fade-out");
         }
-        if(opt.value == "slideShowArr"){
-          Carrusel.representacion = 1;
+        if(opt.value == "slideShowTop"){
+          console.log("top")
+          Carrusel.container.style.setProperty("--animation-time",Carrusel.animationTime);
+          document.getElementById("contenedorImg").style.setProperty("--animation-type-in","top-fade-in");
+          document.getElementById("contenedorImg").style.setProperty("--animation-type-out","top-fade-out");
         }
-        if(opt.value == "dibujos"){
-          Carrusel.representacion = 2;
+        if(opt.value == "zoom"){
+          Carrusel.container.style.setProperty("--animation-time",Carrusel.animationTime);
+          document.getElementById("contenedorImg").style.setProperty("--animation-type-in","zoom-fade-in");
+          document.getElementById("contenedorImg").style.setProperty("--animation-type-out","zoom-fade-out");
         }
         break;
     }
   }
-  Carrusel.reinit();
 }
 
 Carrusel.loadingImg = function () {
@@ -170,9 +153,11 @@ Carrusel.cargar = function() {
   fragment = Carrusel.cargarContenedorImg();
   Carrusel.container.insertBefore( fragment, Carrusel.container.firstChild );
   document.getElementById("contenedorImg").children[0].classList.add("activa");
-  document.getElementById("contenedorImg").children[1].classList.add("proxima");
   Carrusel.imgActiva = 0;
   document.getElementsByClassName("dot")[Carrusel.imgActiva].classList.add("activeDot");
+  Carrusel.container.style.setProperty("--animation-time",Carrusel.animationTime);
+  document.getElementById("contenedorImg").style.setProperty("--animation-type-in","right-fade-in");
+  document.getElementById("contenedorImg").style.setProperty("--animation-type-out","right-fade-out");
 };
 
 Carrusel.cargarContenedorImg = function() {
