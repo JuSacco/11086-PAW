@@ -9,10 +9,8 @@
 	
 	TP2 - PHP  ✓
 	
-	TP3 - CSS.JS
+	TP3 - CSS.JS ✓
 	
 	TP4 - PHP.MVC ✓
-	
-	TP6 - SVG
 	
 	TP FINAL
